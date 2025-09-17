@@ -143,6 +143,70 @@ export default function RacTemporaryInsurance() {
         <footer className="mt-12 text-sm text-slate-500">
           <div className="border-t pt-6">© 2025 RAC - Prototype clone. This is a design/educational clone and not an official RAC site.</div>
         </footer>
+        import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
+// Individual pages
+function Home() {
+  return <div className="p-6">Home Page - Welcome to RAC Temporary Car Insurance Clone</div>;
+}
+
+function Personal() {
+  return <div className="p-6">Personal Insurance Page</div>;
+}
+
+function Van() {
+  return <div className="p-6">Van Insurance Page</div>;
+}
+
+function Business() {
+  return <div className="p-6">Business Insurance Page</div>;
+}
+
+function Sales() {
+  return <div className="p-6">Sales Page - Contact 0330 159 1111</div>;
+}
+
+function Login() {
+  return <div className="p-6">myRAC Login Page</div>;
+}
+
+export default function RacTemporaryInsurance() {
+  return (
+    <Router>
+      <div className="min-h-screen bg-gray-50 text-slate-800">
+        {/* Top nav */}
+        <header className="bg-white shadow-sm">
+          <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 bg-orange-500 rounded flex items-center justify-center font-bold text-white">RAC</div>
+              <nav className="hidden md:flex gap-6 text-sm font-medium">
+                <Link className="hover:underline" to="/personal">Personal</Link>
+                <Link className="hover:underline" to="/van">Van</Link>
+                <Link className="hover:underline" to="/business">Business</Link>
+              </nav>
+            </div>
+            <div className="flex items-center gap-4">
+              <Link className="text-sm text-slate-600" to="/sales">Sales 0330 159 1111</Link>
+              <Link className="text-sm text-blue-600 font-semibold" to="/login">myRAC Login</Link>
+            </div>
+          </div>
+        </header>
+
+        <main className="max-w-6xl mx-auto px-6 py-12">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/personal" element={<Personal />} />
+            <Route path="/van" element={<Van />} />
+            <Route path="/business" element={<Business />} />
+            <Route path="/sales" element={<Sales />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
+  );
+}
       </main>
     </div>
   );
